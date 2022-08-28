@@ -33,9 +33,9 @@
 
         
       var marcadores = [
-        ['BBVA', -12.093911979480064, -77.02125768470195],
-        ['BBVA', 40.963, -5.669],
-        ['Zamora', 41.503, -5.744]
+        ['<h6>Sede San Isidrio </h6><hr><p class="letras-mapa-normal">Capacidad máxima: 100</p> <p class=" letras-mapa-green"><b>Aforo Actual: 20</b></p><br>', -12.093911979480064, -77.02125768470195],
+        ['<h6>Sede Chullpa 1 </h6><hr><p class="letras-mapa-normal">Capacidad máxima: 100</p> <p class=" letras-mapa-orange"><b>Aforo Actual: 70</b></p><br>', 40.963, -5.669],
+        ['<h6>Sede Central Hall 1 </h6><hr><p class="letras-mapa-normal">Capacidad máxima: 100</p> <p class="letras-mapa-red"><b>Aforo Actual: 80</b></p><br>', 41.503, -5.744]
       ];
       navigator.geolocation.getCurrentPosition((position) => {
     let lat = position.coords.latitude;
@@ -50,20 +50,20 @@
         {
          position:new google.maps.LatLng(-12.093639490725643, -77.02114921594276),
          type: "green",
-         
+         aforo: 20
         },
         {
          position:new google.maps.LatLng(-12.093672880650315, -77.02117707358069),
          type: "orange",
-       
+         aforo: 70
         },
         {
         position:new google.maps.LatLng(-12.093934700957226, -77.02108925950786),
             type: "red",
-            
+            aforo: 80
         },
        
-    ]
+    ]    
     let icons={
         green: 
         {
@@ -78,6 +78,17 @@
         }
 
     }
+    let iconoSegunAforo = (aforo)=>{
+        if(aforo>=80){
+            return "red"
+        }
+        if(aforo>=50 && aforo<80){
+            return "orange"
+        }
+        else{
+            return "green"
+        }
+      }
     
 
       var map = new google.maps.Map(document.getElementById('mapa'), {
@@ -90,7 +101,7 @@
       for (i = 0; i < markers.length; i++) {  
         marker = new google.maps.Marker({
             position: markers[i].position,
-            icon: icons[markers[i].type].icon,
+            icon: icons[iconoSegunAforo(markers[i].aforo)].icon,
             map: map,
         });
 console.log(i);
@@ -210,6 +221,7 @@ console.log(i);
                     </div>
                     <!-- Fin Cambios -->
                 </div>
+                
             </div>
         </section>
         <section class="">
@@ -220,7 +232,7 @@ console.log(i);
         </section>
         <br>
     <section class="naho" style="text-align: center; padding-bottom: 20px;">
-        <h3>¿No encuentras tu agencia?</h3>
+        <h3>¿Deseas buscar otras agencias?</h3>
         <a href="index.html" class="btn btn-info" style="color:#fff">Ver mas agencias</a>
     </section>
     

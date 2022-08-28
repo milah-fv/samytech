@@ -298,3 +298,35 @@ border-radius: 0px 0px 25px 25px;
         display: block !important;
     }
 }
+/* Cambios */
+.letras-mapa-normal{
+    font-weight: bold;
+}
+.letras-mapa-green{
+    font-size: 25;
+    background-color:#00cdce;
+    border-radius: 2px;
+    color:#ffffff;
+    text-align:center;
+    margin-top: 5px;
+    font-weight: bold;
+}
+.letras-mapa-orange{
+    font-size: 25;
+    background-color:#f6a308;
+    border-radius: 2px;
+    color:#ffffff;
+    text-align:center;
+    margin-top: 5px;
+    font-weight: bold;
+}
+.letras-mapa-red{
+    font-size: 25;
+    background-color:#f1412e;
+    border-radius: 2px;
+    color:#ffffff;
+    text-align:center;
+    margin-top: 5px;
+    font-weight: bold;
+}
+/* Fin Cambios */
